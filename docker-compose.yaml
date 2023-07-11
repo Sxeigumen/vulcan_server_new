@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mosquitto:
     container_name: mosquitto
-    image: eclipse-mosquitto:stable
+    image: eclipse-mosquitto:latest
     restart: always
     ports:
       - "1883:1883"
@@ -15,12 +15,12 @@ services:
     networks:
       - mosquitto-net
 
-  proxy:
-    container_name: proxi
+  proxy1:
+    container_name: proxi1
     image: nginx:stable
     restart: always
     ports:
-      - "20000:80"
+      - "80:80"
       - "80:80"
       - "443:443"
     volumes:
